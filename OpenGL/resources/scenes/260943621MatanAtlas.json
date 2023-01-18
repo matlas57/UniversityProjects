@@ -1,0 +1,74 @@
+{
+    "resolution": [640, 480],
+    "AA": { "jitter": false, "samples": 1 },
+    "ambient": [0.2, 0.2, 0.2],
+    "camera": {
+        "position": [0.0, 4.0, 6.0],
+        "lookAt": [0.0, 2.0, 0.0],
+        "up": [0.0, 1.0, 0.0],
+        "fov": 45.0       
+    },
+    "materials": [
+        {
+            "name": "blue", "ID": 0, 
+            "diffuse": [0.0, 0.0, 1.0], "specular": [0.5, 0.5, 0.5],
+            "hardness": 16
+        },
+        {
+            "name": "red", "ID": 1, 
+            "diffuse": [1.0, 0.0, 0.0], "specular": [0.5, 0.5, 0.5],
+            "hardness": 50
+        },
+        {
+            "name": "gray", "ID": 2, 
+            "diffuse": [0.7, 0.7, 0.7], "specular": [0.0, 0.0, 0.0],
+            "hardness": 100
+        }
+    ],    
+    "objects": [
+        {
+            "name": "plane", "type": "plane",
+            "normal": [0.0, 1.0, 0.0],
+            "position": [0.0, 0.0, 0.0],
+            "materials": [2]
+        },
+        {
+            "name": "sphere0",
+            "type": "sphere",
+            "radius": 1.1,
+            "position": [-4.0, 1.1, -1.0],
+            "materials": [1]
+        },
+        {
+            "name": "sphere1",
+            "type": "sphere",
+            "radius": 0.5,
+            "position": [1.5, 0.5, -0.5],
+            "materials": [0]
+        },
+        {
+            "name": "box",
+            "type": "box",
+            "rotation": [45.0, 45.0, 0.0],
+            "size": [2.0, 2.0, 2.0],
+            "position": [-0.5, 1.0, -3.0],
+            "materials": [1]
+        }        
+    ],
+    "lights": [
+        {
+            "name": "light1",
+            "type": "area",
+            "position": [10.0, 5.0, 10.0],
+            "colour": [0.8, 0.2, 0.2],
+            "power": 0.6
+        },
+        {
+            "name": "light2",
+            "type": "area",
+            "position": [-10.0, 10.0, 2.0],
+            "colour": [0.8, 0.8, 0.8],
+            "power": 0.9
+        }
+    ]
+}
