@@ -6,3 +6,5 @@ This is a ray tracer project I made which implements a number of common ray trac
 5. ray-box intersection
 6. reflections
 7. anti-aliasing
+
+The out directory displays some sample images made using the ray tracer
