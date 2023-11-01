@@ -1,0 +1,118 @@
+
+<!-- Matan Atlas: 260943621 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matan Atlas COMP 307 A4</title>
+</head>
+<body>
+    <form id="form" action="mini6.php" method="post"> <!--action="/mini4.py"-->
+        <h1>Registration Form</h1>
+        <h5>Please fill in all fields and click Register.</h5>
+        <h3>User Information</h3>
+        <table>
+            <tr>
+                <td><label id="forfname">First Name:</label></td>
+                <td><input type="text" id="fname" name="fname"></td>
+            </tr>
+            <tr>
+                <td><label id="forlname">Last Name:</label></td>
+                <td><input type="text" id="lname" name="lname"></td>
+            </tr>
+            <tr>
+                <td><label id="foremail">Email:</label></td>
+                <td><input type="email" id="email" name="email"></td>
+            </tr>
+            <tr>
+                <td><label id="forphone">Phone:</label></td>
+                <td><input type="tel" id="phone" placeholder="(555) 555-5555" name="phone"></td>
+            </tr>
+        </table>
+        <h3>Publications</h3>
+        <h5>Which book would you like information about?</h5>
+        <select id="books" name="book">
+            <option value="Brave New World" name="book">Brave New World</option>
+            <option value="Animal Farm" name="book">Animal Farm</option>
+            <option value="Into Thin Air" name="book">Into Thin Air</option>
+        </select>
+        <h3>Operating System</h3>
+        <h5>Which operating system do you use?</h5>
+        <input type="radio" id="os1" name="os" value="Windows" checked>
+        <label for="os1">Windows</label>
+        <input type="radio" id="os2" name="os" value="MAC OS X">
+        <label for="os2">MAC OS X</label>
+        <input type="radio" id="os3" name="os" value="Linux">
+        <label for="os3">Linux</label>
+        <input type="radio" id="os4" name="os" value="Other">
+        <label for="os4">Other</label>
+        <br>
+        <br>
+        <!--This button will enforce that all values are filled out-->
+        <button id="submitButton">Register</button>
+    </form>
+    <!--A form that submits an empty CGI object to mini6.php, this is used to test displaying an empty csv-->
+    <!-- <form action="mini6.php" method="post">
+        <p>Click the button to submit an empty form to test displaying an empty csv</p>
+        <button type="submit">Submit form</button>
+    </form> -->
+    <script>
+        document.getElementById("submitButton").addEventListener("click", function(event){
+            event.preventDefault()
+            CheckForEmpty();
+        });
+
+        function CheckForEmpty(){
+            var errors = false;
+            var form = document.getElementById("form");
+
+            var formElements = form.elements;
+
+            for(var i = 0; i < formElements.length; i++){
+                var element = formElements[i];
+
+                // Check if the element is an input field
+                if (element.tagName === "INPUT") {
+                // Check if the input field is empty
+                    if (element.value == "") {
+                        errors=true;
+                        // Find the corresponding label for the input field
+                        var labelid = "for" + element.id;
+                        console.log(labelid);
+                        var label = document.getElementById(labelid);
+
+                        // Change the color of the label to red
+                        if (label) {
+                            label.style.color = "red";
+                        }
+                    }
+                }
+            }
+
+            if (errors == false){
+                for(var i = 0; i < formElements.length; i++){
+                    var element = formElements[i];
+
+                    // Check if the element is an input field
+                    if (element.tagName === "INPUT") {
+                    
+                        // Find the corresponding label for the input field
+                        var labelid = "for" + element.id;
+                        console.log(labelid);
+                        var label = document.getElementById(labelid);
+
+                        // Change the color of the label to red
+                        if (label) {
+                            label.style.color = "black";
+                        }
+                        
+                    }
+                }
+                // submit the form if there are no errors
+                form.submit();
+            }
+        }
+    </script>
+</body>
+</html>
